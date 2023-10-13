@@ -23,14 +23,6 @@ public class Posting {
     @Column(name="content", columnDefinition = "LONGTEXT", nullable = false)
     private String content;
 
-    @Column(name="created_at", nullable = false)
-    private LocalDateTime createdAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="members_id", nullable = false)
     private Member member;

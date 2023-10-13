@@ -40,6 +40,7 @@ public class MemberController {
             Member member = Member.createMember(memberFormDto, passwordEncoder);
             memberService.saveMember(member);
         } catch (IllegalStateException e) {
+            e.printStackTrace();
             model.addAttribute("errorMessage", e.getMessage());
             return "member/memberForm";
         }

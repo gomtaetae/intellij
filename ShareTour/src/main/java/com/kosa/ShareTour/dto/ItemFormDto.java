@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +22,10 @@ public class ItemFormDto {
     @NotBlank(message = "내용은 필수 값입니다")
     private String content;
 
-    @NotBlank(message = "이미지 파일은 필수 값입니다")
-    private String img;
-
-    @NotBlank(message = "가격은 필수 값입니다")
+    @NotNull(message = "가격은 필수 값입니다")
     private Integer totalPrice;
 
-    @NotBlank(message = "재고 수는 필수 값입니다")
+    @NotNull(message = "재고는 필수 값입니다")
     private Integer inStock;
 
     private Integer stockLeft;
