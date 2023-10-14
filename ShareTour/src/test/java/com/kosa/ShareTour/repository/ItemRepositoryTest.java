@@ -40,7 +40,6 @@ class ItemRepositoryTest {
         Item item = new Item();
         item.setTitle("부산여행");
         item.setContent("부산");
-        item.setImg("이미지.png");
         item.setTotalPrice(100000);
         item.setInStock(20202020);
         item.setStockLeft(3023402);
@@ -54,7 +53,6 @@ class ItemRepositoryTest {
             Item item = new Item();
             item.setTitle("테스트 상품" + i);
             item.setContent("부산" + i);
-            item.setImg("이미지.png");
             item.setTotalPrice(100000 + i);
             item.setInStock(20202020 + i);
             item.setStockLeft(3023402 + i);
@@ -147,7 +145,6 @@ class ItemRepositoryTest {
             item.setTitle("테스트 상품" + i);
             item.setTotalPrice(10000 + i);
             item.setContent("테스트 상품 상세 설명" + i);
-            item.setImg("이미지.png");
             item.setTotalPrice(100000 + i);
             item.setInStock(20202020 + i);
             item.setStockLeft(3023402 + i);
@@ -160,7 +157,6 @@ class ItemRepositoryTest {
             item.setContent("테스트 상품" + i);
             item.setTotalPrice(10000 + i);
             item.setContent("테스트 상품 상세 설명" + i);
-            item.setImg("이미지.png");
             item.setTotalPrice(100000 + i);
             item.setInStock(20202020 + i);
             item.setStockLeft(3023402 + i);

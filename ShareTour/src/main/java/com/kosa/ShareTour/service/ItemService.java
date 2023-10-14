@@ -16,7 +16,7 @@ import com.kosa.ShareTour.dto.ItemImgDto;
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 
-//import com.kosa.ShareTour.dto.ItemSearchDto;
+import com.kosa.ShareTour.dto.ItemSearchDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -55,18 +55,21 @@ public class ItemService {
         return item.getId();
     }
 
-    /*
-    @Transactional(readOnly = true)
-    public ItemFormDto getItemDtl(Long itemId){
+
+    @Transactional(readOnly = true)     //상품데이터를 읽어오는 Transaction을 읽기 전용으로 설정(JPA가 더티체킹을 수행하지 않아 성능 향상 가능)
+    public ItemFormDto getItemDtl(Long itemId) {
+
+        //상품의 이미지 조회, 등록순으로 가져오기위해 오름차순 정렬
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
+
         List<ItemImgDto> itemImgDtoList = new ArrayList<>();
-        for (ItemImg itemImg : itemImgList) {
+        for (ItemImg itemImg : itemImgList) {       //조회한 ItemImg 엔티티를 ItemImgDto 객체로 만들어서 리스트에 추가
             ItemImgDto itemImgDto = ItemImgDto.of(itemImg);
             itemImgDtoList.add(itemImgDto);
         }
 
-        Item item = itemRepository.findById(itemId)
-                .orElseThrow(EntityNotFoundException::new);
+        Item item = itemRepository.findById(itemId)         //상품 아이디를 통해 상품 엔티티를 조회
+                .orElseThrow(EntityNotFoundException::new);     //존재하지 않을때는 EntityNotFoundException을 발생
         ItemFormDto itemFormDto = ItemFormDto.of(item);
         itemFormDto.setItemImgDtoList(itemImgDtoList);
         return itemFormDto;
@@ -76,23 +79,27 @@ public class ItemService {
         //상품 수정
         Item item = itemRepository.findById(itemFormDto.getId())
                 .orElseThrow(EntityNotFoundException::new);
+        //상품 등록 화면으로부터 전달 받은 상품 아이디를 이용하여 상품 엔티티를 조회
+
         item.updateItem(itemFormDto);
+        //상품 등록 화면으로부터 전달 받은 ItemFormDto를 통해 상품 엔티티를 업데이트
+
         List<Long> itemImgIds = itemFormDto.getItemImgIds();
+        //상품 이미지 아이디 리스트를 조회
 
         //이미지 등록
         for(int i=0;i<itemImgFileList.size();i++){
             itemImgService.updateItemImg(itemImgIds.get(i),
-                    itemImgFileList.get(i));
+                    itemImgFileList.get(i));        //updatetItemImg 메소드에 상품이미지와 상품 이미지 파일정보를 파라미터로 전달
         }
 
         return item.getId();
     }
-
     @Transactional(readOnly = true)
     public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
         return itemRepository.getAdminItemPage(itemSearchDto, pageable);
     }
-
+/*
     @Transactional(readOnly = true)
     public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
         return itemRepository.getMainItemPage(itemSearchDto, pageable);
@@ -100,4 +107,4 @@ public class ItemService {
 
      */
 
-}
+    }

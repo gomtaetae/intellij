@@ -45,7 +45,6 @@ class OrderTest {
         Item item = new Item();
         item.setTitle("부산여행");
         item.setContent("부산");
-        item.setImg("이미지.png");
         item.setTotalPrice(100000);
         item.setInStock(20202020);
         item.setStockLeft(3023402);

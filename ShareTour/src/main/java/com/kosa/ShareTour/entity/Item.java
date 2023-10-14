@@ -1,6 +1,7 @@
 package com.kosa.ShareTour.entity;
 
 import com.kosa.ShareTour.constant.ItemSellStatus;
+import com.kosa.ShareTour.dto.ItemFormDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,7 +28,7 @@ public class Item extends BaseEntity{
     @Column(name = "content", columnDefinition = "LONGTEXT", nullable = false)
     private String content;       //패키지 설명
 
-    @Column(name="img", nullable = false)
+    @Column(name="img")
     private String img;
 
     @Column(name="totalprice", nullable = false)
@@ -41,6 +42,17 @@ public class Item extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;    //패키지 판매 상태
+
+    public void updateItem(ItemFormDto itemFormDto) {
+
+        this.title = itemFormDto.getTitle();
+        this.content = itemFormDto.getContent();
+        this.totalPrice = itemFormDto.getTotalPrice();
+        this.inStock = itemFormDto.getInStock();
+        this.stockLeft = itemFormDto.getStockLeft();
+        this.itemSellStatus = itemFormDto.getItemSellStatus();
+
+    }
 
 //    @ManyToOne
 //    @JoinColumn(name="places_id")
