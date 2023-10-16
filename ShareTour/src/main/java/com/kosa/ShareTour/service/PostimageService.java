@@ -50,7 +50,7 @@ public class PostimageService {
             String oriImgName = postimageFile.getOriginalFilename();
             assert oriImgName != null;
             String imgName = fileService.uploadFile(postimageLocation, oriImgName, postimageFile.getBytes());
-            String imgUrl = "/images/item/" + imgName;
+            String imgUrl = "/images/posting/" + imgName;
             savedPostimage.updatePostimage(oriImgName, imgName, imgUrl);
         }
     }

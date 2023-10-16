@@ -17,7 +17,7 @@ public class Postimage extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch =  FetchType.LAZY)
-    @JoinColumn(name="postings_id")
+    @JoinColumn(name="posting_id")
     private Posting posting;
 
     private String imgName;
@@ -26,7 +26,7 @@ public class Postimage extends BaseEntity {
 
     private String imgUrl;
 
-    private String repimgYn;
+    private String repImgYn;
 
     public void updatePostimage(String oriImgName, String imgName, String imgUrl) {
         this.oriImgName = oriImgName;

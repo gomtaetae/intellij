@@ -50,9 +50,9 @@ public class PostingService {
             postimage.setPosting(posting);
 
             if(i == 0)
-                postimage.setRepimgYn("Y");
+                postimage.setRepImgYn("Y");
             else
-                postimage.setRepimgYn("N");
+                postimage.setRepImgYn("N");
 
             postimageService.savePostimage(postimage, postimageFileList.get(i));
         }

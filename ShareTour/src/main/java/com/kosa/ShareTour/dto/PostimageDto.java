@@ -17,7 +17,7 @@ public class PostimageDto {
 
     private String imgUrl;
 
-    private String repimgYn;
+    private String repImgYn;
 
     private static ModelMapper modelMapper = new ModelMapper();
 

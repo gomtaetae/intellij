@@ -43,7 +43,6 @@ class CartTest {
         memberFormDto.setEmail("test@email.com");
         memberFormDto.setNickname("Hongs");
         memberFormDto.setPassword("12345678");
-        memberFormDto.setCreateTime(LocalDateTime.now());
         memberFormDto.setGender("남성");
         memberFormDto.setBirthday("2023-10-10");
         memberFormDto.setPhone("010-1234-5678");
