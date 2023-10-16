@@ -2,6 +2,7 @@ package com.kosa.ShareTour.entity;
 
 import com.kosa.ShareTour.constant.ItemSellStatus;
 import com.kosa.ShareTour.dto.ItemFormDto;
+import com.kosa.ShareTour.exception.OutOfStockException;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -31,14 +32,12 @@ public class Item extends BaseEntity{
     @Column(name="img")
     private String img;
 
-    @Column(name="totalprice", nullable = false)
-    private Integer totalPrice;
+    @Column(name="price", nullable = false)
+    private Integer price;
 
     @Column(name="in_stock", nullable = false)
     private Integer inStock;
 
-    @Column(name="stock_left")
-    private Integer stockLeft;
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;    //패키지 판매 상태
@@ -47,13 +46,24 @@ public class Item extends BaseEntity{
 
         this.title = itemFormDto.getTitle();
         this.content = itemFormDto.getContent();
-        this.totalPrice = itemFormDto.getTotalPrice();
+        this.price = itemFormDto.getPrice();
         this.inStock = itemFormDto.getInStock();
-        this.stockLeft = itemFormDto.getStockLeft();
         this.itemSellStatus = itemFormDto.getItemSellStatus();
 
     }
 
+    public void removeStock ( int inStock){
+        int restStock = this.inStock - inStock;
+        if (restStock < 0) {
+            throw new OutOfStockException("상품의 재고가 부족 합니다.(현재 재고 수량: " + this.inStock + ")");
+        }
+        this.inStock = restStock;
+    }
+
+    public void addStock(int inStock){
+        this.inStock += inStock;
+
+    }
 //    @ManyToOne
 //    @JoinColumn(name="places_id")
 //    private Place place;

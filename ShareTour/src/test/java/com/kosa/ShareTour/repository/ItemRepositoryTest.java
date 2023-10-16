@@ -40,9 +40,7 @@ class ItemRepositoryTest {
         Item item = new Item();
         item.setTitle("부산여행");
         item.setContent("부산");
-        item.setTotalPrice(100000);
         item.setInStock(20202020);
-        item.setStockLeft(3023402);
         item.setItemSellStatus(ItemSellStatus.SELL);
         Item savedItem = itemRepository.save(item);
         System.out.println(savedItem.toString());
@@ -53,9 +51,7 @@ class ItemRepositoryTest {
             Item item = new Item();
             item.setTitle("테스트 상품" + i);
             item.setContent("부산" + i);
-            item.setTotalPrice(100000 + i);
             item.setInStock(20202020 + i);
-            item.setStockLeft(3023402 + i);
             item.setItemSellStatus(ItemSellStatus.SELL);
             Item savedItem = itemRepository.save(item);
         }
@@ -85,7 +81,7 @@ class ItemRepositoryTest {
     @DisplayName("가격 LessThan 테스트")
     public void findByTotalPriceLessThanTest(){
         this.createItemList();
-        List<Item> itemList = itemRepository.findByTotalPriceLessThan(100005);
+        List<Item> itemList = itemRepository.findByPriceLessThan(100005);
         for(Item item : itemList){
             System.out.println(item.toString());
         }
@@ -95,7 +91,7 @@ class ItemRepositoryTest {
     @DisplayName("가격 내림차순 조회 테스트")
     public void findByTotalPriceLessThanOrderByToTalPriceDesc(){
         this.createItemList();
-        List<Item> itemList = itemRepository.findByTotalPriceLessThanOrderByTotalPriceDesc(10005);
+        List<Item> itemList = itemRepository.findByPriceLessThanOrderByPriceDesc(10005);
         for(Item item : itemList){
             System.out.println(item.toString());
         }
@@ -130,7 +126,7 @@ class ItemRepositoryTest {
         JPAQuery<Item> query  = queryFactory.selectFrom(qItem)
                 .where(qItem.itemSellStatus.eq(ItemSellStatus.SELL))
                 .where(qItem.content.like("%" + "테스트 상품 상세 설명" + "%"))
-                .orderBy(qItem.totalPrice.desc());
+                .orderBy(qItem.price.desc());
 
         List<Item> itemList = query.fetch();
 
@@ -143,11 +139,8 @@ class ItemRepositoryTest {
         for(int i=1;i<=5;i++){
             Item item = new Item();
             item.setTitle("테스트 상품" + i);
-            item.setTotalPrice(10000 + i);
             item.setContent("테스트 상품 상세 설명" + i);
-            item.setTotalPrice(100000 + i);
             item.setInStock(20202020 + i);
-            item.setStockLeft(3023402 + i);
             item.setItemSellStatus(ItemSellStatus.SELL);
             itemRepository.save(item);
         }
@@ -155,11 +148,8 @@ class ItemRepositoryTest {
         for(int i=6;i<=10;i++){
             Item item = new Item();
             item.setContent("테스트 상품" + i);
-            item.setTotalPrice(10000 + i);
             item.setContent("테스트 상품 상세 설명" + i);
-            item.setTotalPrice(100000 + i);
             item.setInStock(20202020 + i);
-            item.setStockLeft(3023402 + i);
             item.setItemSellStatus(ItemSellStatus.SOLD_OUT);
             itemRepository.save(item);
         }
@@ -178,7 +168,7 @@ class ItemRepositoryTest {
         String itemSellStat = "SELL";
 
         booleanBuilder.and(item.content.like("%" + content + "%"));
-        booleanBuilder.and(item.totalPrice.gt(totalPrice));
+        booleanBuilder.and(item.price.gt(totalPrice));
         System.out.println(ItemSellStatus.SELL);
         if(StringUtils.equals(itemSellStat, ItemSellStatus.SELL)){
             booleanBuilder.and(item.itemSellStatus.eq(ItemSellStatus.SELL));

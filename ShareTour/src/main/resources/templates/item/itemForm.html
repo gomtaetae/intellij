@@ -78,9 +78,9 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">가격</span>
             </div>
-            <input type="number" th:field="*{totalPrice}" class="form-control" placeholder="상품의 가격을 입력해주세요">
+            <input type="number" th:field="*{price}" class="form-control" placeholder="상품의 가격을 입력해주세요">
         </div>
-        <p th:if="${#fields.hasErrors('totalPrice')}" th:errors="*{totalPrice}" class="fieldError">Incorrect data</p>
+        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="fieldError">Incorrect data</p>
 
         <div class="input-group">
             <div class="input-group-prepend">

@@ -23,12 +23,10 @@ public class ItemFormDto {
     private String content;
 
     @NotNull(message = "가격은 필수 값입니다")
-    private Integer totalPrice;
+    private Integer price;
 
     @NotNull(message = "재고는 필수 값입니다")
     private Integer inStock;
-
-    private Integer stockLeft;
 
     private ItemSellStatus itemSellStatus;
 

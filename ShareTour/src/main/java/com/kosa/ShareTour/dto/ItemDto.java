@@ -19,11 +19,9 @@ public class ItemDto {
 
     private String img;
 
-    private Integer totalPrice;
+    private Integer price;
 
     private Integer inStock;
-
-    private Integer stockLeft;
 
     private ItemSellStatus itemSellStatus;
 }
