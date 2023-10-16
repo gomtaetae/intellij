@@ -48,7 +48,6 @@ class CartTest {
         memberFormDto.setBirthday("2023-10-10");
         memberFormDto.setPhone("010-1234-5678");
         memberFormDto.setAddressMain("서울시 마포구 합정동");
-        memberFormDto.setGrade("1급");
 
         return Member.createMember(memberFormDto, passwordEncoder);
     }

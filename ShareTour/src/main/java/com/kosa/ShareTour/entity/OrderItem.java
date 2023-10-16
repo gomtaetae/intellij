@@ -2,14 +2,11 @@ package com.kosa.ShareTour.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
-public class OrderItem extends BaseEntity{
+@Getter @Setter
+public class OrderItem extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "order_item_id")
@@ -23,15 +20,11 @@ public class OrderItem extends BaseEntity{
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private  int orderPrice;    //주문가격
+    private int orderPrice; //주문가격
 
-    private int count;          //수량
+    private int count; //수량
 
-    private LocalDateTime regTime;
-
-    private LocalDateTime updateTime;
-
-    public static OrderItem createOrderItem(Item item, int count) {
+    public static OrderItem createOrderItem(Item item, int count){
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
         orderItem.setCount(count);
@@ -40,7 +33,7 @@ public class OrderItem extends BaseEntity{
         return orderItem;
     }
 
-    public int getTotalPrice() {
+    public int getTotalPrice(){
         return orderPrice*count;
     }
 

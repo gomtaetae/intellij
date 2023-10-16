@@ -2,31 +2,33 @@ package com.kosa.ShareTour.dto;
 
 import com.kosa.ShareTour.constant.OrderStatus;
 import com.kosa.ShareTour.entity.Order;
-import lombok.Data;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class OrderHistDto {
 
     public OrderHistDto(Order order){
         this.orderId = order.getId();
         this.orderDate = order.getOrderDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         this.orderStatus = order.getOrderStatus();
-
     }
 
-    private Long orderId;
+    private Long orderId; //주문아이디
+    private String orderDate; //주문날짜
+    private OrderStatus orderStatus; //주문 상태
 
-    private String orderDate;
+    private List<OrderItemDto> orderItemDtoList = new ArrayList<>();
 
-    private OrderStatus orderStatus;
-
-    private List<OrderItemDto> orderItemDtoList =new ArrayList<>();
-
+    //주문 상품리스트
     public void addOrderItemDto(OrderItemDto orderItemDto){
         orderItemDtoList.add(orderItemDto);
     }
+
 }

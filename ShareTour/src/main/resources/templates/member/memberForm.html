@@ -52,8 +52,8 @@
         <div class="form-group">
             <label th:for="gender">성별</label>
             <select th:field="*{gender}" class="form-control" placeholder="성별 선택">
-                <option value="남">남</option>
-                <option value="여">여</option>
+                <option value="Man">남</option>
+                <option value="Woman">여</option>
             </select>
             <p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="fieldError">Incorrect data</p>
         </div>

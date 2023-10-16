@@ -13,14 +13,14 @@
     <script th:inline="javascript">
         $(document).ready(function(){
 
-            calculateTotalPrice();
+            calculateToalPrice();
 
             $("#count").change( function(){
-                calculateTotalPrice();
+                calculateToalPrice();
             });
         });
 
-        function calculateTotalPrice(){
+        function calculateToalPrice(){
             var count = $("#count").val();
             var price = $("#price").val();
             var totalPrice = price*count;

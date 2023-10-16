@@ -54,6 +54,7 @@ public class MemberFormDto {
 
     private int point;
 
+
     //유저 이미지 추가 코드 아래 쭉
 //    private List<MemberImgDto> memberImgDtoList = new ArrayList<>();
 //
