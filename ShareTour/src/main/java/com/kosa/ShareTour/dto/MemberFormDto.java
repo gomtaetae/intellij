@@ -33,8 +33,6 @@ public class MemberFormDto {
     @Length(min=8, max=16, message = "비밀번호는 8자 이상, 16자 이하로 입력 해야 합니다")
     private String password;
 
-    private LocalDateTime createTime;
-
     private String imgUrl;
 
     private String gender;

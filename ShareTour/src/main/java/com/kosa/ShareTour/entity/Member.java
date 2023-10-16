@@ -33,10 +33,6 @@ public class Member extends BaseEntity{
     @Column(name="password", nullable = false)
     private String password;
 
-    @Column(name="create_time")
-    private LocalDateTime createTime;
-
-
     //@PrePersist
     //protected void onCreate() {
     //    createTime = LocalDateTime.now();
@@ -78,7 +74,6 @@ public class Member extends BaseEntity{
         String password = passwordEncoder.encode(memberFormDto.getPassword());
         member.setPassword(password);
 
-        member.setCreateTime(LocalDateTime.now());
         member.setImgUrl(memberFormDto.getImgUrl());
         member.setGender(memberFormDto.getGender());
         member.setBirthday(LocalDate.parse(memberFormDto.getBirthday()));
