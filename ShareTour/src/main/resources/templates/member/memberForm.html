@@ -51,7 +51,10 @@
         </div>
         <div class="form-group">
             <label th:for="gender">성별</label>
-            <input type="text" th:field="*{gender}" class="form-control" placeholder="성별 입력">
+            <select th:field="*{gender}" class="form-control" placeholder="성별 선택">
+                <option value="남">남</option>
+                <option value="여">여</option>
+            </select>
             <p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="fieldError">Incorrect data</p>
         </div>
         <div class="form-group">
@@ -74,11 +77,11 @@
             <input type="text" th:field="*{addressSub}" class="form-control" placeholder="상세주소 입력">
             <p th:if="${#fields.hasErrors('addressSub')}" th:errors="*{addressSub}" class="fieldError">Incorrect data</p>
         </div>
-        <div class="form-group">
-            <label th:for="grade">등급</label>
-            <input type="text" th:field="*{grade}" class="form-control" placeholder="등급 입력">
-            <p th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}" class="fieldError">Incorrect data</p>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <label th:for="grade">등급</label>-->
+<!--            <input type="text" th:field="*{grade}" class="form-control" placeholder="등급 입력">-->
+<!--            <p th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}" class="fieldError">Incorrect data</p>-->
+<!--        </div>-->
 
         <!-- 이미지 추가 -->
 <!--        <div class="form-group">-->

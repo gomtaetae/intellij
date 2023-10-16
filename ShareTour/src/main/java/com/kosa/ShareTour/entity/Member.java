@@ -45,20 +45,20 @@ public class Member extends BaseEntity{
     @Column(name="img")
     private String imgUrl;
 
-    @Column(name="gender", length = 45, nullable = false)
+    @Column(name="gender", length = 45)
     private String gender;
 
     @Column(name="birthday", nullable = false)
     private LocalDate birthday;
 
-    @Column(name="mobile", length = 45, nullable = false)
+    @Column(name="mobile", length = 45)
     private String mobile;
 
     @Column(name="address", length = 45, nullable = false)
     private String address;
 
-    @Column(name="grade", length = 45)
-    private String grade;
+//    @Column(name="grade", length = 45)
+//    private String grade;
 
     @Column(name="point")
     private int point;
@@ -84,10 +84,10 @@ public class Member extends BaseEntity{
         member.setBirthday(LocalDate.parse(memberFormDto.getBirthday()));
         member.setMobile(memberFormDto.getPhone());
         member.setAddress(memberFormDto.getAddressMain() + memberFormDto.getAddressSub());
-        member.setGrade(memberFormDto.getGrade());
+//        member.setGrade(memberFormDto.getGrade());
         member.setPoint(memberFormDto.getPoint());
 
-        member.setRole(Role.ADMIN);
+        member.setRole(Role.USER);
         flush();
 
         return member;

@@ -37,13 +37,11 @@ public class MemberFormDto {
 
     private String imgUrl;
 
-    @NotBlank(message = "성별은 필수 입력 ")
     private String gender;
 
     @NotBlank(message = "생년월일은 필수 입력 값입니다")
     private String birthday;
 
-    @NotBlank(message = "전화번호는 필수 입력 값입니다")
     @Length(min = 1, max= 11, message = "전화번호는 '-'없이 11자 이하로 입력 해야 됩니다")
     private String phone;
 
@@ -52,7 +50,7 @@ public class MemberFormDto {
 
     private String addressSub;
 
-    private String grade;
+//    private String grade;
 
     private int point;
 
