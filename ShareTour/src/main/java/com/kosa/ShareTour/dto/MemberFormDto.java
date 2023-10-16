@@ -1,16 +1,23 @@
 package com.kosa.ShareTour.dto;
 
+import com.kosa.ShareTour.entity.Item;
+import com.kosa.ShareTour.entity.Member;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class MemberFormDto {
+
+//    private Long id;
 
     @NotBlank(message = "이름은 필수 입력 값입니다")
     private String name;
@@ -48,5 +55,20 @@ public class MemberFormDto {
     private String grade;
 
     private int point;
+
+    //유저 이미지 추가 코드 아래 쭉
+//    private List<MemberImgDto> memberImgDtoList = new ArrayList<>();
+//
+//    private List<Long> memberImgIds = new ArrayList<>();
+//
+//    private static ModelMapper modelMapper = new ModelMapper();
+//
+//    public Member createMember(){
+//        return modelMapper.map(this, Member.class);
+//    }
+//
+//    public static MemberFormDto of(Member member) {
+//        return modelMapper.map(member, MemberFormDto.class);
+//    }
 
 }

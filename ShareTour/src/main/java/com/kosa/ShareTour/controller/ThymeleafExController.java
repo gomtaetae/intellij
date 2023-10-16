@@ -24,7 +24,7 @@ public class ThymeleafExController {
         ItemDto itemDto = new ItemDto();
         itemDto.setContent("상품 상세 설명");
         itemDto.setTitle("테스트 상품1");
-        itemDto.setTotalPrice(10000);
+        itemDto.getPrice();
 
         model.addAttribute("itemDto", itemDto);
         return "thymeleafEx/thymeleafEx02";
@@ -40,7 +40,7 @@ public class ThymeleafExController {
             ItemDto itemDto = new ItemDto();
             itemDto.setContent("상품 상세 설명"+i);
             itemDto.setTitle("테스트 상품" + i);
-            itemDto.setTotalPrice(1000*i);
+            itemDto.setPrice(1000*i);
 
             itemDtoList.add(itemDto);
         }
@@ -59,7 +59,7 @@ public class ThymeleafExController {
             ItemDto itemDto = new ItemDto();
             itemDto.setContent("상품 상세 설명"+i);
             itemDto.setTitle("테스트 상품" + i);
-            itemDto.setTotalPrice(1000*i);
+            itemDto.setPrice(1000*i);
 
             itemDtoList.add(itemDto);
         }
