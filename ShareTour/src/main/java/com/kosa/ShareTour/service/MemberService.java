@@ -25,11 +25,18 @@ public class MemberService implements UserDetailsService{
     }
 
     private void validateDuplicateMember(Member member){
-        Member findMember = memberRepository.findByEmail(member.getEmail());
-        if(findMember != null){
+        Member findMemberEmail = memberRepository.findByEmail(member.getEmail());
+        if(findMemberEmail != null) {
             throw new IllegalStateException("이미 가입된 회원입니다(동일한 Email을 사용하는 계정 존재)");
         }
+
+        Member findMemberNick = memberRepository.findByNickname(member.getNickname());
+        if(findMemberNick != null) {
+            throw new IllegalStateException("이미 사용중인 아이디 입니다");
+        }
+
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
