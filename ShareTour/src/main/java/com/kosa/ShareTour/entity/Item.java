@@ -64,19 +64,19 @@ public class Item extends BaseEntity{
         this.inStock += inStock;
 
     }
-//    @ManyToOne
-//    @JoinColumn(name="places_id")
-//    private Place place;
-//
-//    @ManyToOne
-//    @JoinColumn(name="landmarks_id")
-//    private Landmark landmark;
-//
-//    @ManyToOne
-//    @JoinColumn(name="accommodations_id")
-//    private Accommodation accommodation;
-//
-//    @ManyToOne
-//    @JoinColumn(name="restaurants_id")
-//    private Restaurant restaurant;
+    @ManyToOne
+    @JoinColumn(name="places_id")
+    private Place place;
+
+    @ManyToOne
+    @JoinColumn(name="landmarks_id")
+    private Landmark landmark;
+
+    @ManyToOne
+    @JoinColumn(name="accommodations_id")
+    private Accommodation accommodation;
+
+    @ManyToOne
+    @JoinColumn(name="restaurants_id")
+    private Restaurant restaurant;
 }

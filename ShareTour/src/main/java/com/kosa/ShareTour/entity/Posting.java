@@ -32,8 +32,8 @@ public class Posting extends BaseEntity {
     @JoinColumn(name="members_id")
     private Member member;
 
-//    @OneToMany(mappedBy = "posting", cascade = CascadeType.REMOVE)
-//    private List<Comment> commentList = new ArrayList<>();
+    @OneToMany(mappedBy = "posting", cascade = CascadeType.REMOVE)
+    private List<Comment> commentList = new ArrayList<>();
 
 //    public void createPosting(String title, String content) {
 //        Posting posting = new Posting();

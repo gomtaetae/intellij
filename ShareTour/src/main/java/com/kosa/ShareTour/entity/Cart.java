@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "cart")
@@ -25,5 +27,10 @@ public class Cart extends BaseEntity {
         cart.setMember(member);
         return cart;
     }
+
+    //추가내용
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.REMOVE)
+    private List<CartItem> cartItemList = new ArrayList<>();
+
 
 }

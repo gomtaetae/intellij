@@ -33,11 +33,6 @@ public class Member extends BaseEntity{
     @Column(name="password", nullable = false)
     private String password;
 
-    //@PrePersist
-    //protected void onCreate() {
-    //    createTime = LocalDateTime.now();
-    //}
-
     @Column(name="img")
     private String imgUrl;
 
@@ -53,14 +48,28 @@ public class Member extends BaseEntity{
     @Column(name="address", length = 45, nullable = false)
     private String address;
 
-//    @Column(name="grade", length = 45)
-//    private String grade;
-
     @Column(name="point")
     private int point;
 
-//    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
-//    private List<Posting> postingList = new ArrayList<>();
+    //추가
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Posting> postingList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Comment> commentList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Purchase> purchaseList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Auction> auctionList = new ArrayList<>();
+
+    @OneToOne(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private Cart cart;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Order> orderList = new ArrayList<>();
+    //추가 끝
 
     @Enumerated(EnumType.STRING)
     private Role role;
