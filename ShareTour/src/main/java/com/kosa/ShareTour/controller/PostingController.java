@@ -1,23 +1,23 @@
 package com.kosa.ShareTour.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import com.kosa.ShareTour.dto.PostingFormDto;
 
 import com.kosa.ShareTour.service.PostingService;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 //Principal 활용
 import java.security.Principal;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import javax.persistence.EntityNotFoundException;
 
 import com.kosa.ShareTour.dto.PostingSearchDto;
@@ -94,7 +94,7 @@ public class PostingController {
         try {
             postingService.updatePosting(postingFormDto, postimageFileList);
         } catch (Exception e){
-            model.addAttribute("errorMessage", "게시글 수정 중 에러가 발생하였습니다.");
+            model.addAttribute("errorMessage", "해당 글의 작성자가 아닙니다.");
             return "posting/postingForm";
         }
 
@@ -114,10 +114,16 @@ public class PostingController {
     }
 
     @GetMapping(value = "/posting/{postingId}")
-    public String postingDtl(Model model, @PathVariable("postingId") Long itemId){
-        PostingFormDto postingFormDto = postingService.getPostingDtl(itemId);
+    public String postingDtl(Model model, @PathVariable("postingId") Long postingId){
+        PostingFormDto postingFormDto = postingService.getPostingDtl(postingId);
         model.addAttribute("posting", postingFormDto);
         return "posting/postingDtl";
     }
+
+//    @DeleteMapping("{postingId}")
+//    public ResponseEntity deletePosting(@PathVariable("postingId") Long postingId) {
+//        postingService.deletePosting(postingId);
+//        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//    }
 
 }

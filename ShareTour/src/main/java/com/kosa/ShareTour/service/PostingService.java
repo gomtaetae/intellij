@@ -8,7 +8,7 @@ import com.kosa.ShareTour.repository.MemberRepository;
 import com.kosa.ShareTour.repository.PostimageRepository;
 import com.kosa.ShareTour.repository.PostingRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.parameters.P;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -91,6 +91,19 @@ public class PostingService {
         }
 
         return posting.getId();
+    }
+
+
+    //id로 포스팅을 찾는 함수
+    public Posting findPostingId(Long postingId) {
+        return postingRepository.findById(postingId)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    //포스팅 삭제
+    public void deletePosting(Long postingId) {
+        findPostingId(postingId);
+        postingRepository.deleteById(postingId);
     }
 
     @Transactional(readOnly = true)

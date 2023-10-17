@@ -52,7 +52,7 @@
             <tr th:each="posting, status: ${postings.getContent()}">
                 <td th:text="${posting.id}"></td>
                 <td>
-                    <a th:href="'/user/posting/'+${posting.id}" th:text="${posting.title}"></a>
+                    <a th:href="'/posting/'+${posting.id}" th:text="${posting.title}"></a>
                 </td>
                 <td th:text="${posting.createdBy}"></td>
                 <td th:text="${posting.regTime}"></td>

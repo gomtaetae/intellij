@@ -12,7 +12,6 @@
 <th:block layout:fragment="script">
     <script th:inline="javascript">
 
-
     </script>
 </th:block>
 
@@ -55,6 +54,9 @@
         <div class="wd50">
             <div class="h4" th:text="${posting.title}"></div>
             <hr class="my-4">
+            <div>
+                좋아요
+            </div>
         </div>
     </div>
 
@@ -68,6 +70,10 @@
 
     <div th:each="postimage : ${posting.postimageDtoList}" class="text-center">
         <img th:if="${not #strings.isEmpty(postimage.imgUrl)}" th:src="${postimage.imgUrl}" class="rounded mgb-15" width="800">
+    </div>
+
+    <div>
+        여기에 댓글 작성
     </div>
 
 </div>

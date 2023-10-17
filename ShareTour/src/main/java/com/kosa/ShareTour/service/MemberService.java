@@ -1,6 +1,7 @@
 package com.kosa.ShareTour.service;
 
 import com.kosa.ShareTour.entity.Member;
+import com.kosa.ShareTour.entity.Posting;
 import com.kosa.ShareTour.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import javax.persistence.EntityNotFoundException;
 
 @Service
 @Transactional
@@ -51,6 +54,10 @@ public class MemberService implements UserDetailsService{
                 .password(member.getPassword())
                 .roles(member.getRole().toString())
                 .build();
+    }
+
+    public Member findByEmail(String email) {
+        return memberRepository.findByEmail(email);
     }
 
 }

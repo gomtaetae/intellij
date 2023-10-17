@@ -16,10 +16,6 @@ public class Postimage extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch =  FetchType.LAZY)
-    @JoinColumn(name="posting_id")
-    private Posting posting;
-
     private String imgName;
 
     private String oriImgName;
@@ -27,6 +23,10 @@ public class Postimage extends BaseEntity {
     private String imgUrl;
 
     private String repImgYn;
+
+    @ManyToOne(fetch =  FetchType.LAZY)
+    @JoinColumn(name="posting_id")
+    private Posting posting;
 
     public void updatePostimage(String oriImgName, String imgName, String imgUrl) {
         this.oriImgName = oriImgName;
