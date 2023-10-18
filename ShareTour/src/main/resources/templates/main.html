@@ -5,13 +5,17 @@
 
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
     <style>
+        .pagination{width:175px;
+                    margin:0 auto;}
         .carousel-inner > .item {
             height: 350px;
         }
         .margin{
             margin-bottom:30px;
         }
+        .margin:nth-child(1){margin-left:0px;}
         .banner{
             height: 300px;
             position: absolute; top:0; left: 0;
@@ -29,15 +33,27 @@
         .center{
             text-align:center;
         }
+        .row{width:1200px;
+             margin:0 auto;}
+
+        .page_wrap{width:1200px;
+                    margin:0 auto;}
+
+        .row h3{font-size:13px;
+                margin-top:5px;}
     </style>
 </th:block>
 
 <div layout:fragment="content">
 
-    <div id="carouselControls" class="carousel slide margin" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active item">
-                <img class="d-block w-100 banner" src="https://yaimg.yanolja.com/v5/2023/10/12/10/6527c8fdaa6613.72923647.png" alt="First slide">
+    <div class="slide_bg">
+        <div class="slide_center">
+            <div class="slide_wrap">
+                <ul class="slide">
+                    <li><a href=""><img src="/img/banner (1).png" alt=""></a></li>
+                    <li><a href=""><img src="/img/banner (2).png" alt=""></a></li>
+                    <li><a href=""><img src="/img/banner (3).png" alt=""></a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -52,7 +68,7 @@
             <div class="col-md-4 margin">
                 <div class="card">
                     <a th:href="'/item/' +${item.id}" class="text-dark">
-                        <img th:src="${item.imgUrl}" class="card-img-top" th:alt="${item.title}" height="400">
+                        <img th:src="${item.imgUrl}" class="card-img-top" th:alt="${item.title}" height="250">
                         <div class="card-body">
                             <h4 class="card-title">[[${item.title}]]</h4>
                             <p class="card-text">[[${item.content}]]</p>
@@ -63,27 +79,4 @@
             </div>
         </th:block>
     </div>
-
-    <div th:with="start=${(items.number/maxPage)*maxPage + 1}, end=(${(items.totalPages == 0) ? 1 : (start + (maxPage - 1) < items.totalPages ? start + (maxPage - 1) : items.totalPages)})" >
-        <ul class="pagination justify-content-center">
-
-            <li class="page-item" th:classappend="${items.number eq 0}?'disabled':''">
-                <a th:href="@{'/' + '?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number-1}}" aria-label='Previous' class="page-link">
-                    <span aria-hidden='true'>Previous</span>
-                </a>
-            </li>
-
-            <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${items.number eq page-1}?'active':''">
-                <a th:href="@{'/' +'?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${page-1}}" th:inline="text" class="page-link">[[${page}]]</a>
-            </li>
-
-            <li class="page-item" th:classappend="${items.number+1 ge items.totalPages}?'disabled':''">
-                <a th:href="@{'/' +'?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number+1}}" aria-label='Next' class="page-link">
-                    <span aria-hidden='true'>Next</span>
-                </a>
-            </li>
-
-        </ul>
-    </div>
-
 </div>

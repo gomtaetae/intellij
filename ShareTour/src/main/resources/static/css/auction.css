@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body{background-color:#fff; color:#000000;line-height:100%; font-weight:normal; padding:0; margin:0px; letter-spacing:-0px;font-family: 'Noto Sans KR', sans-serif;}
+
+html{width:100%;letter-spacing:0px;}
+
+div,p,ul,li,table,th,td,input,span,form,h2,h1,h3,h5,h6,dd,dl,em,sup{padding:0px; margin:0px;}
+
+ul,li,ol,dl{list-style:none; margin:0px; padding:0px; line-height:100%; color:#000000; letter-spacing:0px; }
+
+form,fieldset,p {margin:0; padding:0; border:0;}
+
+img{border:0; vertical-align:middle;outline:none;}
+
+a,a :visited{text-decoration:none; color:black}
+.text_box{display:block;}
+.clearfix::after{content:""; display:block; clear:both;}
+.text_box{display:block;}
+.logo, nav, nav li,.icon li{float:left;}
+*{margin:0; padding:0;}
+
+#wrap{width:100%;}
+
+.center{width:1060px;
+       overflow:hidden;
+       margin:0 auto;}
+
+.top{height:230px;}
+
+.top_nav{height:50px;}
+
+.logo img{width:100px;}
+
+.login{float:right;
+       margin-top:30px;}
+
+.login li{float:left;
+          margin-left:30px;
+          font-size:15px;}
+
+.search_box{width:500px;
+            height:50px;
+            float:left;}
+
+nav{width:1200px;
+    height:80px;
+    margin-top:50px;}
+
+nav li{float:left;}
+
+nav li img{width:20px;}
+
+.main_menu > li{text-align:center;
+                margin-left:124px;}
+
+.main_menu > li:nth-child(1){margin-left:0px;}
+
+.sub_menu{position:relative;
+         height:200px;}
+
+.sub_menu li{display:none;
+           margin-top:10px;}
+
+.main_menu li:hover .sub_menu li{display:block;}
+
+input{width:500px;
+       height:50px;
+       margin-left:10px;
+       margin-top:20px;
+      border-radius:10px;
+      border:0px;}
+
+.text{height:30px;
+      margin-top:50px;}
+
+.text img{width:30px;
+          height:30px;
+          float:left;}
+
+.text p {font-size: 30px;
+         font-weight: 700;
+         margin-left:40px;}
+
+.package_img img{width:560px;
+                 height:360px;
+                 margin-left:20px;}
+
+.package_img img:nth-child(1){margin-left:0px;}
+
+footer{height:250px;
+    border-top: 1px solid gray;}
+
+.footer_top{height:150px;}
+
+.footer_logo{width:300px;
+           float: left;}
+
+.footer_logo img{width:150px;}
+
+.footer_li{width:600px;
+        float:right;
+        margin-top:52px;}
+
+.footer_li li{width:100px;
+       float:left;}
+
+.footer_info p{font-size:15px;
+            font-weight:300;}
+
+.t1 {margin: 20px 0px 30px 30px;}
+
+.t1 h1 { margin: 30px 30px 30px 30px;}
+
+.travel_package {
+    height: 400px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.travel_package .package_img {
+    margin-right: 10px;
+    float: left;
+}
+
+.travel_package .t1 {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.travel_package .d_block h1 {
+    margin-bottom: 10px;
+}
+
+.starting-price {
+    font-weight: bold;
+    float:right;
+}
+
+.sellBtn {
+    border: 1px solid red;
+    background-color: transparent;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    display:block;
+    margin:auto;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+/*body {
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}*/
+
+.countdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    margin-bottom: 60px;
+}
+
+.big-text {
+    font-size: 2rem;
+    line-height: 1;
+    margin: 1rem 2rem;
+}
+
+.countdown-el {
+    text-align: center;
+}
+
+.countdown-el span {
+    font-size: 1rem;
+}
+
+.d_rest {
+    margin-top: 30px;
+    margin-right: 119px;
+}
+
+.timerImg {
+    width:50px;
+    height:45px;
+    margin-top: 20px;
+}
+
+.t2 {margin: 20px 0px 30px 30px;}
+
+.t2 h1 { margin: 30px 30px 30px 30px;}

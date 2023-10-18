@@ -2,50 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:fragment="header">
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="/">Shop</a>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/user/posting/new">게시글 작성</a>
-                </li>
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/user/postings">게시글 조회</a>
-                </li>
-                <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-                    <a class="nav-link" href="/admin/item/new">상품 등록</a>
-                </li>
-                <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-                    <a class="nav-link" href="/admin/items">상품 관리</a>
-                </li>
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/cart">장바구니</a>
-                </li>
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/orders">구매이력</a>
-                </li>
-                <li class="nav-item" sec:authorize="isAnonymous()">
-                    <a class="nav-link" href="/members/login">로그인</a>
-                </li>
-                <li class="nav-item" sec:authorize="isAnonymous()">
-                    <a class="nav-link" href="/members/new">회원가입</a>
-                </li>
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/members/logout">로그아웃</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" th:action="@{/}" method="get">
-                <input name="searchQuery" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+    <header>
+        <div class="header_wrap">
+            <div class="header_top">
+                <div class="header_center">
+                    <div class="login">
+                        <ul class="clearfix">
+                            <li sec:authorize="isAnonymous()"><a href="/members/login">로그인</a></li>
+                            <li sec:authorize="isAnonymous()"><a href="/members/new">회원가입</a></li>
+                            <li sec:authorize="isAuthenticated()"><a href="/members/logout">로그아웃</a></li>
+                        </ul>
+                    </div>
+                    <div class="header_2">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="/img/logo.png" alt="">
+                                <p>Share tour</p>
+                            </a>
+                        </div>
+                        <div class="search">
+                            <input type="text" placeholder="검색어를 입력해주세요">
+                            <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul class="clearfix main_menu">
+                    <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                        <a href="#">관리자 메뉴</a>
+                        <ul class="sub_menu">
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/item/new">패키지 상품 등록</a></li>
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/items">패키지 상품 관리</a></li>
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/auction/new">경매 상품 등록</a></li>
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/auctions">경매 상품 관리</a></li>
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/users">회원목록</a>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/img/icons8-비행기-48.png" alt="">패키지 상품</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/user/posting/new"><img src="/img/icons8-게시판-48.png"
+                                                                                           alt="">게시글 작성</a></li>
+                    <li><a href="/user/postings"><img src="/img/icons8-게시판-48.png" alt="">게시글 조회</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/cart"><img src="/img/icons8-법-48.png"
+                                                                               alt="">장바구니</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/orders"><img src="/img/icons8-sparkles-48.png"
+                                                                                 alt="">구매이력</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/user/profile/edit">회원정보</a></li>
+                </ul>
+            </nav>
         </div>
-
-    </nav>
-
+    </header>
 </div>
 </html>

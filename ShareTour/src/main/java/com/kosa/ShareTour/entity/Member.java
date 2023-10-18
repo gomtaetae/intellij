@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +22,7 @@ public class Member extends BaseEntity{
     private Long id;
 
     @Column(name="username", length = 32, nullable = false)
-    private String username;
-
+    private String name;
     @Column(name="email", length = 60, nullable = false, unique = true)
     private String email;
 
@@ -36,47 +35,52 @@ public class Member extends BaseEntity{
     @Column(name="img")
     private String imgUrl;
 
-    @Column(name="gender", length = 45)
+    @Column(name="gender", length = 45, nullable = false)
     private String gender;
 
     @Column(name="birthday", nullable = false)
     private LocalDate birthday;
 
-    @Column(name="mobile", length = 45)
-    private String mobile;
+    @Column(name="phone", length = 45, nullable = false)
+    private String phone;
 
-    @Column(name="address", length = 45, nullable = false)
-    private String address;
+    @Column(name="addressMain", nullable = false)
+    private String addressMain;
+
+    @Column(name="addressSub", nullable = false)
+    private String addressSub;
 
     @Column(name="point")
     private int point;
 
-    //추가
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Posting> postingList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Comment> commentList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
-    private List<Purchase> purchaseList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
-    private List<Auction> auctionList = new ArrayList<>();
+//    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+//    private List<Purchase> purchaseList = new ArrayList<>();
 
     @OneToOne(mappedBy = "member", cascade = CascadeType.REMOVE)
     private Cart cart;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Order> orderList = new ArrayList<>();
-    //추가 끝
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Auction> auctionList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL
+            , orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<AuctionOrder> auctionOrderList = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
     public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         Member member = new Member();
-        member.setUsername(memberFormDto.getName());
+        member.setName(memberFormDto.getName());
         member.setEmail(memberFormDto.getEmail());
         member.setNickname(memberFormDto.getNickname());
 
@@ -86,31 +90,13 @@ public class Member extends BaseEntity{
         member.setImgUrl(memberFormDto.getImgUrl());
         member.setGender(memberFormDto.getGender());
         member.setBirthday(LocalDate.parse(memberFormDto.getBirthday()));
-        member.setMobile(memberFormDto.getPhone());
-        member.setAddress(memberFormDto.getAddressMain() + memberFormDto.getAddressSub());
-//        member.setGrade(memberFormDto.getGrade());
+        member.setPhone(memberFormDto.getPhone());
+        member.setAddressMain(memberFormDto.getAddressMain());
+        member.setAddressSub(memberFormDto.getAddressSub());
         member.setPoint(memberFormDto.getPoint());
 
         member.setRole(Role.USER);
-        flush();
 
         return member;
     }
-
-    //사용자 수정 안되면 지우기
-//    public void updateMember(MemberFormDto memberFormDto) {
-//        this.username = memberFormDto.getName();
-//        this.email = memberFormDto.getEmail();
-//        this.nickname = memberFormDto.getNickname();
-//        this.password = memberFormDto.getPassword();
-//        this.gender = memberFormDto.getGender();
-//        this.mobile = memberFormDto.getPhone();
-//        this.grade = memberFormDto.getGrade();
-//        this.point = memberFormDto.getPoint();
-//    }
-    //여기 위까지 사용자 수정 추가
-
-    private static void flush() {
-    }
-
 }

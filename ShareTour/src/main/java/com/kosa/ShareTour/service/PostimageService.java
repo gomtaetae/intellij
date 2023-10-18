@@ -15,7 +15,7 @@ import javax.persistence.EntityNotFoundException;
 @Transactional
 public class PostimageService {
 
-    @Value("${postimageLocation}")
+    @Value("${postImgLocation}")
     private String postimageLocation;
 
     private final PostimageRepository postimageRepository;

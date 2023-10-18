@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 import com.kosa.ShareTour.dto.ItemImgDto;
+
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ import com.kosa.ShareTour.dto.MainItemDto;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class  ItemService {
+public class ItemService {
 
     private final ItemRepository itemRepository;
 
@@ -33,18 +34,18 @@ public class  ItemService {
 
     private final ItemImgRepository itemImgRepository;
 
-    public Long saveItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
+    public Long saveItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception {
 
         //상품 등록
         Item item = itemFormDto.createItem();
         itemRepository.save(item);
 
         //이미지 등록
-        for(int i=0;i<itemImgFileList.size();i++){
+        for (int i = 0; i < itemImgFileList.size(); i++) {
             ItemImg itemImg = new ItemImg();
             itemImg.setItem(item);
 
-            if(i == 0)
+            if (i == 0)
                 itemImg.setRepimgYn("Y");
             else
                 itemImg.setRepimgYn("N");
@@ -75,7 +76,7 @@ public class  ItemService {
         return itemFormDto;
     }
 
-    public Long updateItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
+    public Long updateItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception {
         //상품 수정
         Item item = itemRepository.findById(itemFormDto.getId())
                 .orElseThrow(EntityNotFoundException::new);
@@ -88,22 +89,23 @@ public class  ItemService {
         //상품 이미지 아이디 리스트를 조회
 
         //이미지 등록
-        for(int i=0;i<itemImgFileList.size();i++){
+        for (int i = 0; i < itemImgFileList.size(); i++) {
             itemImgService.updateItemImg(itemImgIds.get(i),
                     itemImgFileList.get(i));        //updatetItemImg 메소드에 상품이미지와 상품 이미지 파일정보를 파라미터로 전달
         }
 
         return item.getId();
     }
+
     @Transactional(readOnly = true)
-    public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
+    public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
         return itemRepository.getAdminItemPage(itemSearchDto, pageable);
     }
 
     @Transactional(readOnly = true)
-    public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
+    public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
         return itemRepository.getMainItemPage(itemSearchDto, pageable);
     }
 
 
-    }
+}

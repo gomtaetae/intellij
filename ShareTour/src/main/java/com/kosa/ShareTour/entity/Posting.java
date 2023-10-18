@@ -37,6 +37,9 @@ public class Posting extends BaseEntity {
     @OneToMany(mappedBy = "posting", cascade = CascadeType.REMOVE)
     private List<Comment> commentList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "posting", cascade = CascadeType.REMOVE)
+    private List<Postimage> postimageList = new ArrayList<>();
+
     //좋아요, 조회수
     private Integer postingCount = 0;
 

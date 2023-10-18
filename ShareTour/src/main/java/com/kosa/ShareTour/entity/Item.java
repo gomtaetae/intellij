@@ -10,6 +10,8 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="item")
@@ -38,7 +40,6 @@ public class Item extends BaseEntity{
     @Column(name="in_stock", nullable = false)
     private Integer inStock;
 
-
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;    //패키지 판매 상태
 
@@ -64,6 +65,7 @@ public class Item extends BaseEntity{
         this.inStock += inStock;
 
     }
+
     @ManyToOne
     @JoinColumn(name="places_id")
     private Place place;
@@ -79,4 +81,11 @@ public class Item extends BaseEntity{
     @ManyToOne
     @JoinColumn(name="restaurants_id")
     private Restaurant restaurant;
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.REMOVE)
+    private List<CartItem> cartItemList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.REMOVE)
+    private List<OrderItem> orderItemList = new ArrayList<>();
+
 }

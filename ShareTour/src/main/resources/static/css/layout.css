@@ -1,0 +1,80 @@
+.slide_bg{width:100%;
+          height:500px;
+          background-color:#BEE1F9;}
+
+.slide_center{width:1200px;
+               margin:0 auto;
+              height:500px;}
+
+.slide_wrap{width:1200px;
+              margin-top:50px;
+            float:right;
+            height:500px;
+            overflow:hidden;
+            position:relative;}
+
+.slide{width:3600px;
+       height:400px;
+       position:relative;}
+
+.slide li{width:1200px;
+         height:400px;
+         float:left;}
+
+.slide li img{width:1200px;
+              height:400px;}
+
+.package_product{width:1200px;
+                 height:300px;
+                 margin:0 auto;}
+
+.travel_package{height:200px;
+                margin-top:10px;}
+
+.text{height:50px;
+       margin-top:40px;}
+
+.text img{width:30px;
+          height:30px;
+          margin-right:10px;
+         float:left;}
+
+.text p{font-size:22px;
+        padding-top:10px;
+        font-weight:600;}
+
+.package_img{margin-top:10px;}
+
+.package_img a{margin-left:15px;}
+
+.package_img img{width:280px;
+               height:200px;
+               margin-left:20px;}
+
+.package_img img:nth-child(1){margin-left:0px;}
+
+button{position:absolute;}
+
+.box{float:left;
+     margin-left:25px;}
+
+.box:nth-child(1){margin-left:0px;}
+
+.box_img{position:relative;}
+
+.box_info{ color: #fff;
+       position: absolute;
+       background: rgba(0,0,0,0.5);
+       width: 16.6%;
+       padding: 15px;
+       top:30;
+       opacity: 0;
+       text-align:center;
+       box-sizing: border-box;
+       transition: opacity 0.35s ease-in-out;}
+
+.box:hover .box_info{opacity: 1;}
+
+.sale{height:100px;
+       margin-top:20px;
+      text-align:center;}

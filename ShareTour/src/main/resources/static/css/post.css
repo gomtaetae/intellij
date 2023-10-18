@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body{background-color:#fff; color:#000000;line-height:100%; font-weight:normal; padding:0; margin:0px; letter-spacing:-0px;font-family: 'Noto Sans KR', sans-serif;}
+
+html{width:100%;letter-spacing:0px;}
+
+div,p,ul,li,table,th,td,input,span,form,h2,h1,h3,h5,h6,dd,dl,em,sup{padding:0px; margin:0px;}
+
+ul,li,ol,dl{list-style:none; margin:0px; padding:0px; line-height:100%; color:#000000; letter-spacing:0px; }
+
+form,fieldset,p {margin:0; padding:0; border:0;}
+
+img{border:0; vertical-align:middle;outline:none;}
+
+a,a :visited{text-decoration:none; color:black}
+.text_box{display:block;}
+.clearfix::after{content:""; display:block; clear:both;}
+.text_box{display:block;}
+.logo, nav, nav li,.icon li{float:left;}
+*{margin:0; padding:0;}
+
+#wrap{width:100%;}
+
+.center{width:1060px;
+       overflow:hidden;
+       margin:0 auto;}
+
+.top{height:230px;}
+
+.top_nav{height:50px;}
+
+.logo img{width:100px;}
+
+.login{float:right;
+       margin-top:30px;}
+
+.login li{float:left;
+          margin-left:30px;
+          font-size:15px;}
+
+.search_box{width:500px;
+            height:50px;
+            float:left;}
+
+nav{width:1200px;
+    height:80px;
+    margin-top:50px;}
+
+nav li{float:left;}
+
+nav li img{width:20px;}
+
+.main_menu > li{text-align:center;
+                margin-left:124px;}
+
+.main_menu > li:nth-child(1){margin-left:0px;}
+
+.sub_menu{position:relative;
+         height:200px;}
+
+.sub_menu li{display:none;
+           margin-top:10px;}
+
+.main_menu li:hover .sub_menu li{display:block;}
+
+input{width:500px;
+       height:50px;
+       margin-left:10px;
+       margin-top:20px;
+      border-radius:10px;
+      border:0px;}
+
+.board_wrap{width:1200px;}
+
+.board_title{margin-bottom:30px;}
+
+.board_title strong{font-size:30px;}
+
+.board_title p{margin-top:5px;
+                font-size:15px;}
+
+.bt_wrap{margin-top:30px;}
+
+.bt_wrap a{display:inline-block;
+            width:80px;
+            padding:10px;
+            border:1px solid black;
+            border-radius: 2px;
+            font-size:15px;}
+
+.bt_wrap a:first-child{margin-left:0px;}
+
+.bt_wrap a.on{background-color: #000000;
+              color:#ffffff;}
+
+.board_list{width:100%;
+            border-top: 2px solid #000000;}
+
+.board_list > div{border-bottom:1px solid #ddd;}
+
+.board_list > div.top{border-bottom:1px solid #ddd;}
+
+.board_list > div:last-child{border-bottom:1px solid #000;}
+
+.board_list > div > div {display:inline-block;
+                     text-align: center;
+                    font-size:15px;
+                    padding:15px 0;}
+
+.board_list .num{width:10%;}
+
+.board_list .title{width:50%;
+                   text-align:left;}
+
+.board_list .writer{width:10%;}
+
+.board_list .top .title{text-align:center;}
+
+.board_list .date{width:10%;}
+
+.board_list .count{width:10%;}
+
+.board_page{margin-top:30px;
+              text-align: center;}
+
+.board_page a{display:inline-block;
+              width:32px;
+              border-left:0;
+              vertical-align: middle;
+              height:32px;
+              box-sizing: border-box;
+              line-height:100%;
+              border: 1px solid #ddd;}
+
+.board_page a.num{font-size:15px;}
+
+.board_page a.bt{font-size: 12px;
+                 letter-spacing: -1px;
+                padding-top:10px;}
+
+.board_page a:first-child{border-left:1px solid #ddd;}
+
+.board_page a.num.on{border-color:#000;
+                     background-color:#000;
+                     color:#fff;}
+
+.board_page > a{display:inline-block;
+              width:32px;
+              border-left:0;
+              vertical-align: middle;
+              height:32px;
+              box-sizing: border-box;
+              line-height:100%;
+              border: 1px solid #ddd;}
+
+              footer{height:250px;
+                     border-top: 1px solid gray;}
+              
+              .footer_top{height:150px;}
+              
+              .footer_logo{width:300px;
+                            float: left;}
+              
+              
+              .footer_logo img{width:150px;}
+              
+              .footer_li{width:600px;
+                         float:right;
+                         margin-top:52px;}
+              
+              .footer_li li{width:100px;
+                        float:left;}
+              
+              .footer_info p{font-size:15px;
+                             font-weight:300;}
+              
