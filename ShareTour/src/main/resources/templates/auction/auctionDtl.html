@@ -20,7 +20,7 @@
             });
         });
 
-        function calculateToalPrice(){
+        function calculateTotalPrice(){
             var count = $("#count").val();
             var price = $("#price").val();
             var totalPrice = price*count;
@@ -148,10 +148,10 @@
         </div>
         <div class="wd50">
             <span th:if="${auction.auctionStatus == T(com.kosa.ShareTour.constant.AuctionStatus).START}" class="badge badge-primary mgb-15">
-                판매중
+                경매중
             </span>
             <span th:unless="${auction.auctionStatus == T(com.kosa.ShareTour.constant.AuctionStatus).START}" class="badge btn-danger mgb-15" >
-                품절
+                종료
             </span>
             <div class="h4" th:text="${auction.title}"></div>
             <hr class="my-4">
@@ -176,10 +176,10 @@
             </div>
             <div th:if="${auction.auctionStatus == T(com.kosa.ShareTour.constant.AuctionStatus).START}" class="text-right">
                 <button type="button" class="btn btn-light border border-primary btn-lg" onclick="addCart()">장바구니 담기</button>
-                <button type="button" class="btn btn-primary btn-lg" onclick="order()">주문하기</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="order()">입찰하기</button>
             </div>
             <div th:unless="${auction.auctionStatus == T(com.kosa.ShareTour.constant.AuctionStatus).START}" class="text-right">
-                <button type="button" class="btn btn-danger btn-lg">품절</button>
+                <button type="button" class="btn btn-danger btn-lg">종료</button>
             </div>
         </div>
     </div>

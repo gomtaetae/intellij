@@ -1,7 +1,6 @@
 package com.kosa.ShareTour.controller;
 
-import com.kosa.ShareTour.dto.AuctionFormDto;
-import com.kosa.ShareTour.dto.AuctionSearchDto;
+import com.kosa.ShareTour.dto.*;
 import com.kosa.ShareTour.entity.Auction;
 import com.kosa.ShareTour.service.AuctionService;
 import lombok.RequiredArgsConstructor;
@@ -126,5 +125,15 @@ public class AuctionController {
         AuctionFormDto auctionFormDto = auctionService.getAuctionDtl(auctionId);
         model.addAttribute("auction", auctionFormDto);
         return "auction/auctionDtl";
+    }
+
+    @GetMapping(value = "/auction")
+    public String auctionList(AuctionSearchDto auctionSearchDto, Optional<Integer> page, Model model){
+        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
+        Page<MainAuctionDto> auctions = auctionService.getMainAuctionPage(auctionSearchDto, pageable);
+        model.addAttribute("auctions", auctions);
+        model.addAttribute("auctionSearchDto", auctionSearchDto);
+        model.addAttribute("maxPage", 5);
+        return "auction/auctionList";
     }
 }

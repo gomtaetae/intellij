@@ -39,7 +39,8 @@
                             <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/users">회원목록</a>
                         </ul>
                     </li>
-                    <li><a href="#"><img src="/img/icons8-비행기-48.png" alt="">패키지 상품</a></li>
+                    <li><a href="/item"><img src="/img/icons8-비행기-48.png">패키지 상품</a></li>
+                    <li><a href="/auction"><img src="/img/icons8-sparkles-48.png">경매 상품</a></li>
                     <li sec:authorize="isAuthenticated()"><a href="/user/posting/new"><img src="/img/icons8-게시판-48.png"
                                                                                            alt="">게시글 작성</a></li>
                     <li><a href="/user/postings"><img src="/img/icons8-게시판-48.png" alt="">게시글 조회</a></li>

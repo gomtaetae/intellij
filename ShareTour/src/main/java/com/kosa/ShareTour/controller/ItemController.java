@@ -1,6 +1,7 @@
 package com.kosa.ShareTour.controller;
 
 import com.kosa.ShareTour.dto.ItemSearchDto;
+import com.kosa.ShareTour.dto.MainItemDto;
 import com.kosa.ShareTour.entity.Item;
 import com.kosa.ShareTour.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -126,6 +127,16 @@ public class ItemController {
         ItemFormDto itemFormDto = itemService.getItemDtl(itemId);
         model.addAttribute("item", itemFormDto);
         return "item/itemDtl";
+    }
+
+    @GetMapping(value = "/item")
+    public String itemList(ItemSearchDto itemSearchDto, Optional<Integer> page, Model model){
+        Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
+        Page<MainItemDto> items = itemService.getMainItemPage(itemSearchDto, pageable);
+        model.addAttribute("items", items);
+        model.addAttribute("itemSearchDto", itemSearchDto);
+        model.addAttribute("maxPage", 5);
+        return "item/itemList";
     }
 
 }

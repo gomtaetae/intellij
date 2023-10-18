@@ -40,7 +40,7 @@
 
 <div layout:fragment="content">
 
-    <form th:action="@{'/admin/auctions/' + ${auctions.number}}" role="form" method="get" th:object="${items}">
+    <form th:action="@{'/admin/auctions/' + ${auctions.number}}" role="form" method="get" th:object="${auctions}">
         <table class="table">
             <thead>
             <tr>
@@ -52,14 +52,14 @@
             </tr>
             </thead>
             <tbody>
-            <!-- items.getContent() 메소드를 호출하면 조회한 상품 데이터를 리스트로 얻을 수 있다 -->
+            <!-- auctions.getContent() 메소드를 호출하면 조회한 상품 데이터를 리스트로 얻을 수 있다 -->
             <tr th:each="auction, status: ${auctions.getContent()}">
                 <td th:text="${auction.id}"></td>
                 <td>
                     <a th:href="'/admin/auction/'+${auction.id}" th:text="${auction.title}"></a>
                 </td>
-                <!-- 상품의 판매상태가 START면 판매중으로 같지 않으면 품절로 보여준다 -->
-                <td th:text="${auction.auctionSellStatus == T(com.kosa.ShareTour.constant.AuctionSellStatus).START} ?  '경매중' : '종료'"></td>
+                <!-- 상품의 판매상태가 START면 판매중으로 같지 않으면 종료로 보여준다 -->
+                <td th:text="${auction.auctionStatus == T(com.kosa.ShareTour.constant.AuctionStatus).START} ? '경매중' : '종료'"></td>
                 <td th:text="${auction.createdBy}"></td>
                 <td th:text="${auction.regTime}"></td>
             </tr>
@@ -69,7 +69,7 @@
         <!-- th:with는 변수값을 정의할때 사용, 페이지 시작과 끝 번호를 구해서 정함-->
         <!-- start = (현재 페이지 번호/보여줄 페이지수) + 1 -->
         <!-- end = start + (보여줄 페이지수 - 1) -->
-        <div th:with="start=${(auctions.number/maxPage)*maxPage + 1}, end=(${(auctions.totalPages == 0) ? 1 : (start + (maxPage - 1) < items.totalPages ? start + (maxPage - 1) : items.totalPages)})" >
+        <div th:with="start=${(auctions.number/maxPage)*maxPage + 1}, end=(${(auctions.totalPages == 0) ? 1 : (start + (maxPage - 1) < auctions.totalPages ? start + (maxPage - 1) : auctions.totalPages)})" >
             <ul class="pagination justify-content-center">
 
                 <!-- 첫번째 페이지면 previous 버튼이 안먹히도록 disable 추가 -->
@@ -105,9 +105,9 @@
                 <option value="6m">6개월</option>
             </select>
             <select th:field="*{searchSellStatus}" class="form-control" style="width:auto;">
-                <option value="">경매상태(전체)</option>
-                <option value="START">경매</option>
-                <option value="END">종료</option>
+                <option value="">판매상태(전체)</option>
+                <option value="SELL">판매</option>
+                <option value="SOLD_OUT">품절</option>
             </select>
             <select th:field="*{searchBy}" class="form-control" style="width:auto;">
                 <option value="title">상품명</option>

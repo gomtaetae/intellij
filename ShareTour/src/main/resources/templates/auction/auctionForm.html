@@ -54,7 +54,7 @@
     <form role="form" method="post" enctype="multipart/form-data" th:object="${auctionFormDto}">
 
         <p class="h2">
-            경매 등록
+            경매 상품 등록
         </p>
 
         <input type="hidden" th:field="*{id}">
@@ -68,7 +68,7 @@
 
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">상품명</span>
+                <span class="input-group-text">경매 상품명</span>
             </div>
             <input type="text" th:field="*{title}" class="form-control" placeholder="상품명을 입력해주세요">
         </div>
@@ -76,23 +76,23 @@
 
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">가격</span>
+                <span class="input-group-text">시작가</span>
             </div>
-            <input type="number" th:field="*{price}" class="form-control" placeholder="상품의 가격을 입력해주세요">
+            <input type="number" th:field="*{price}" class="form-control" placeholder="상품의 시작가를 입력해주세요">
         </div>
         <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="fieldError">Incorrect data</p>
 
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">재고</span>
+                <span class="input-group-text">입찰 금액</span>
             </div>
-            <input type="number" th:field="*{inStock}" class="form-control" placeholder="상품의 재고를 입력해주세요">
+            <input type="number" th:field="*{plusPrice}" class="form-control" placeholder="한번 입찰할때의 가격입니다">
         </div>
-        <p th:if="${#fields.hasErrors('inStock')}" th:errors="*{inStock}" class="fieldError">Incorrect data</p>
+        <p th:if="${#fields.hasErrors('plusPrice')}" th:errors="*{plusPrice}" class="fieldError">Incorrect data</p>
 
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">상품 상세 내용</span>
+                <span class="input-group-text">경매 상품 상세 내용</span>
             </div>
             <textarea class="form-control" aria-label="With textarea" th:field="*{content}"></textarea>
         </div>
