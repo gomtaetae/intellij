@@ -22,20 +22,23 @@ public class AuctionOrderItem extends BaseEntity{
     @JoinColumn(name = "action_order_id")
     private AuctionOrder auctionOrder;
 
-    private int orderPrice; //주문가격
+    private Integer price; //주문가격
 
-    private int count; //수량
+    private Integer count; //수량
+
+    private Integer plusPrice;
 
     public static AuctionOrderItem createAuctionOrderItem(Auction auction, int count){
         AuctionOrderItem auctionOrderItem = new AuctionOrderItem();
         auctionOrderItem.setAuction(auction);
         auctionOrderItem.setCount(count);
-        auctionOrderItem.setOrderPrice(auction.getPrice());
+        auctionOrderItem.setPlusPrice(auction.getPlusPrice());
+        auctionOrderItem.setPrice(auction.getPrice());
         return auctionOrderItem;
     }
 
     public int getTotalPrice(){
-        return orderPrice*count;
+        return price + (plusPrice*count);
     }
 
     public void cancel() {

@@ -82,6 +82,8 @@
         .fs24{
             font-size:24px
         }
+        form{width:1200px;
+             margin:0 auto;}
     </style>
 </th:block>
 
@@ -109,6 +111,8 @@
                 <div class="repImgDiv">
                     <img th:src="${orderItem.imgUrl}" class = "rounded repImg" th:alt="${orderItem.title}">
                 </div>
+                <br>
+
                 <div class="align-self-center w-75">
                     <span th:text="${orderItem.title}" class="fs24 font-weight-bold"></span>
                     <div class="fs18 font-weight-light">

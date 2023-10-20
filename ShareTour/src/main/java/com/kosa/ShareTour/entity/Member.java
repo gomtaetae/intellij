@@ -95,7 +95,7 @@ public class Member extends BaseEntity{
         member.setAddressSub(memberFormDto.getAddressSub());
         member.setPoint(memberFormDto.getPoint());
 
-        member.setRole(Role.ADMIN);
+        member.setRole(Role.USER);
 
         return member;
     }

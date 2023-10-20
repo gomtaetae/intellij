@@ -30,7 +30,7 @@ public class AuctionOrderService {
 
     public Long auctionOrder(AuctionOrderDto auctionOrderDto, String email){
 
-        Auction auction = auctionRepository.findById(auctionOrderDto.getId())
+        Auction auction = auctionRepository.findById(auctionOrderDto.getAuctionId())
                 .orElseThrow(EntityNotFoundException::new);
 
         Member member = memberRepository.findByEmail(email);
@@ -95,7 +95,7 @@ public class AuctionOrderService {
         List<AuctionOrderItem> auctionOrderItemList = new ArrayList<>();
 
         for (AuctionOrderDto auctionOrderDto : auctionOrderDtoList) {
-            Auction auction = auctionRepository.findById(auctionOrderDto.getId())
+            Auction auction = auctionRepository.findById(auctionOrderDto.getAuctionId())
                     .orElseThrow(EntityNotFoundException::new);
 
             AuctionOrderItem auctionOrderItem = AuctionOrderItem.createAuctionOrderItem(auction, auctionOrderDto.getCount());

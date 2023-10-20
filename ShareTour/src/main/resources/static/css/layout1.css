@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&display=swap');
-body{background-color:#fff; color:#000000;line-height:100%; font-weight:normal; padding:0; margin:0px; letter-spacing:-0px;font-family: 'Outfit', sans-serif;}
+body{background-color:#fff; color:#000000;line-height:100%; font-weight:normal; padding-top:180px; margin:0px; letter-spacing:-0px;font-family: 'Outfit', sans-serif;}
 
 html{width:100%;letter-spacing:0px;}
 
@@ -22,10 +22,10 @@ a,a :visited{text-decoration:none; color:black}
 
 header{width:100%;}
 
-.header_wrap{height:170px;}
+.header_wrap{height:150px;}
 
 .header_top{border-bottom:1px solid #ddd;
-           height:110px;}
+           height:140px;}
 
 .header_center{width:1200px;
               height:110px;
@@ -38,33 +38,43 @@ header{width:100%;}
 
 .login li{float:left;
           height:40px;
-          margin-top:20px;
+          margin-top:30px;
           margin-left:10px;
-          font-size:11px;}
+          font-size:18px;}
+
+.login li:nth-child(4){margin-top:25px;}
+
+.login img{width:30px;}
 
 .header_2{width:1200px;
           margin:0 auto;
           height:45px;}
 
-.header_2 .logo{width:180px;
-                height:35px;
+.header_2 .logo{width:250px;
+                height:80px;
                 float:left;}
+
+.logo a{height:80px;
+         display:block;}
 
 .logo img{width:60px;
           height:60px;
+          margin-top:30px;
           float:left;}
 
 .header_2 .logo p{display:block;
-                 margin-top:18px;
-                  font-size:25px;
+                 margin-top:50px;
+                 float:left;
+                 margin-left:20px;
+                  font-size:30px;
                   height:40px;}
 
-.logo > img{width:60px;
-          height:60px;}
+.logo > img{width:120px;
+          height:120px;}
 
 nav{width:100%;
-    height:60px;
-    border-bottom:1px solid black;}
+    height:40px;
+    border-bottom:1px solid #ddd;}
 
 nav ul{width:1200px;}
 
@@ -72,15 +82,17 @@ nav img{width:30px;}
 
 .main_menu > li > .sub_menu{width:120px;
                             height:150px;
-                             z-index:1;
                              background-color:#fff;
                              display:none;
                             position:relative;}
 
-nav > .main_menu > li:hover > .sub_menu li{display:block;}
+nav > .main_menu > li:hover > .sub_menu li{display:block;
+                                           z-index:666;}
+
+.sub_menu{z-index:555;}
 
 .main_menu{width:1200px;
-           height:50px;
+           height:30px;
            padding-top:10px;
            margin:0 auto;}
 
@@ -100,46 +112,61 @@ nav > .main_menu > li:hover > .sub_menu li{display:block;}
                                margin-top:10px;
                                font-size:13px;}
 
+
+
 .search{position: relative;
          float:left;
-         width:300px;}
+         width:500px;}
 
 .search input{width:100%;
               height:30px;
               border: 1px solid black;
-              margin-top:12px;
-              margin-left:10px;
+              margin-top:45px;
               border-radius: 20px;
               padding: 10px 12px;
               font-size: 12px;}
 
 .search img{position : absolute;
              width: 17px;
-             top: 20px;
+             top: 50px;
              right: 12px;}
 
-footer{width:100%;
-       height:250px;
-       border-top: 1px solid gray;}
 
-.footer_wrap{width:1200px;
-             margin:0 auto;}
-.footer_top{height:150px;}
+footer{width:1200px;
+       margin:0 auto;
+       height:250px;}
 
-.footer_logo{width:300px;
-              float: left;}
+footer img{width:100px;
+           margin-top:20px;
+       margin-left:50px;
+           height:100px;}
 
+.footer_wrap{height:250px;}
 
-.footer_logo img{width:150px;}
+.footer_logo{width:250px;
+             height:150px;}
 
-.footer_li{width:600px;
-           float:right;
-           margin-top:52px;}
+.footer_logo h3{font-size:30px;
+              margin-left:35px;
+               font-weight:500;}
 
-.footer_li li{width:100px;
-          float:left;}
+.footer_info {width:470px;
+              height:150px;}
 
-.footer_info p{font-size:15px;
-               line-height:120%;
-               font-weight:300;
-               }
+.footer_info img{width:90px;
+                height:90px;
+                float:left;
+                margin-left:20px;
+                margin-top:35px;}
+
+.footer_wrap div{border-right:1px solid #ddd;
+                float:left;}
+
+.footer_info p{font-size:16px;
+              font-weight:400;}
+
+.footer_info .text{border-right:0px;
+                    margin-top:50px;
+                   margin-left:10px;}
+
+.footer_wrap div:nth-child(3){border-right:0px;}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            var errorMessage = null;
+            if(errorMessage != null){
+                alert(errorMessage);
+            }
+        });
+    </script>
+
+</th:block>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .fieldError {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+
+
+<div layout:fragment="content">
+    <body>
+    <form th:action="@{/user/profile/recovery}" method="post" th:object="${memberFormDto}">
+        <label>이메일:</label>
+        <input type="email" th:field="*{email}" required>
+        <label>닉네임:</label>
+        <input type="text" th:field="*{nickname}" required>
+        <button type="submit">회원 정보 조회</button>
+
+    </form>
+    <p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    </body>
+</div>
+</html>

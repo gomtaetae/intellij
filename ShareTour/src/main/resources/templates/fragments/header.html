@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<div th:fragment="header">
+<div th:fragment="header"style="position:fixed; background-color:#fff; display: flex; top: 0;left: 0; z-index:888;right: 0;">
     <header>
         <div class="header_wrap">
             <div class="header_top">
                 <div class="header_center">
                     <div class="login">
                         <ul class="clearfix">
-                            <li sec:authorize="isAnonymous()"><a href="/members/login">로그인</a></li>
-                            <li sec:authorize="isAnonymous()"><a href="/members/new">회원가입</a></li>
-                            <li sec:authorize="isAuthenticated()"><a href="/members/logout">로그아웃</a></li>
+                            <li sec:authorize="isAnonymous()"><a href="/members/login">Login</a></li>
+                            <li sec:authorize="isAnonymous()"><a href="/members/new">Join In</a></li>
+                            <li sec:authorize="isAuthenticated()"><a href="/members/logout">Logout</a></li>
+                            <li sec:authorize="isAuthenticated()" style="margin-top:20px;"><a href="/cart"><img src="/img/cart.png"></a></li>
                         </ul>
                     </div>
                     <div class="header_2">
@@ -39,15 +40,17 @@
                             <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')"><a href="/admin/users">회원목록</a>
                         </ul>
                     </li>
-                    <li><a href="/item"><img src="/img/icons8-비행기-48.png">패키지 상품</a></li>
-                    <li><a href="/auction"><img src="/img/icons8-sparkles-48.png">경매 상품</a></li>
-                    <li sec:authorize="isAuthenticated()"><a href="/user/posting/new"><img src="/img/icons8-게시판-48.png"
-                                                                                           alt="">게시글 작성</a></li>
-                    <li><a href="/user/postings"><img src="/img/icons8-게시판-48.png" alt="">게시글 조회</a></li>
-                    <li sec:authorize="isAuthenticated()"><a href="/cart"><img src="/img/icons8-법-48.png"
-                                                                               alt="">장바구니</a></li>
-                    <li sec:authorize="isAuthenticated()"><a href="/orders"><img src="/img/icons8-sparkles-48.png"
-                                                                                 alt="">구매이력</a></li>
+                    <li><a href="/item">패키지 상품</a></li>
+                    <li><a href="/auction">경매 상품</a></li>
+                    <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                        <a href="#">게시판</a>
+                        <ul class="sub_menu" style="height:60px;">
+                            <li sec:authorize="isAuthenticated()"><a href="/user/posting/new">게시글 작성</a></li>
+                            <li><a href="/user/postings">게시글 조회</a></li>
+                        </ul>
+                    </li>
+                    <li sec:authorize="isAuthenticated()"><a href="/cart">장바구니</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/orders">구매이력</a></li>
                     <li sec:authorize="isAuthenticated()"><a href="/user/profile/edit">회원정보</a></li>
                 </ul>
             </nav>

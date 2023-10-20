@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -25,30 +25,20 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
+
     <th:block layout:fragment="script"></th:block>
-    <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/firstPage.css}">
-        <link rel="stylesheet" th:href="@{/css/login.css}">
-        <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
-        <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
-        <link th:href="@{https://fonts.googleapis.com/css2?family=Hi+Melody&family=Single+Day&display=swap}" rel="stylesheet">
-        <style>
-            *{
-                font-family: 'Single Day', serif;
-            }
-        </style>
-    </th:block>
+    <th:block layout:fragment="css"></th:block>
 
 </head>
 <body>
 
-<div th:replace="fragments/header::header"></div>
+<div th:replace="fragments/firstHeader::header"></div>
 
 <div layout:fragment="content" class="content">
 
 </div>
 
-<div th:replace="fragments/footer::footer"></div>
+<!--<div th:replace="fragments/footer::footer"></div>-->
 
 </body>
 </html>

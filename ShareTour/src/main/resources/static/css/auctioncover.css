@@ -1,0 +1,64 @@
+  /* Reset styles */
+                        section dark length {
+                          font-family: 'Roboto', Arial, sans-serif;
+                          height: 100% !important;
+                          margin: 0;
+                          min-width: 100%;
+                          padding: 0;
+                          width: 100% !important;
+                        }
+                        body, table, td, div, p, a {
+                          line-height: 100%;
+                          text-size-adjust: 100%;
+                          -webkit-font-smoothing: antialiased;
+                          -ms-text-size-adjust: 100%;
+                          -webkit-text-size-adjust: 100%;
+                        }
+                        table, td {
+                          border-collapse: collapse !important;
+                          border-spacing: 0;
+                          mso-table-lspace: 0pt;
+                          mso-table-rspace: 0pt;
+                        }
+                        img {
+                          border: 0;
+                          line-height: 100%;
+                          outline: none;
+                          text-decoration: none;
+                          -ms-interpolation-mode: bicubic;
+                        }
+                        .action-item {
+                          border: 1px solid #005f7f;
+                          color: #005f7f;
+                          padding: 8px 20px;
+                        }
+                        .action-item:hover {
+                          /*background-color: #2a923d;*/
+                          border: 1px solid #2a923d;
+                          color: #fff;
+                        }
+                        #outlook a {padding: 0;}
+                        .ReadMsgBody {width: 100%;}
+                        .ExternalClass {width: 100%;}
+                        .ExternalClass,
+                        .ExternalClass p,
+                        .ExternalClass span,
+                        .ExternalClass font,
+                        .ExternalClass td,
+                        .ExternalClass div {line-height: 100%;}
+
+                        /* Rounded corners for advanced mail clients only */
+                        @media all and (min-width: 560px) {
+                          .container {
+                            border-radius: 8px;
+                            -webkit-border-radius: 8px;
+                            -moz-border-radius: 8px;
+                            -khtml-border-radius: 8px;
+                          }
+                        }
+                        /* Set color for auto links (addresses, dates, etc.) */
+                        a, a:hover {color: #005f7f;}
+                        .footer a,
+                        .footer a:hover {
+                          color: #999999;
+                        }

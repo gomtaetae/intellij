@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block layout:fragment="css">
+    <style>
+        .header-top{
+            border-color: transparent;
+        }
+        .login li {
+            font-size: 50px;
+        }
+        .header2 img{
+            margin-top : 2px;
+        }
+    </style>
+</th:block>
+<div th:fragment="header" style="position:fixed; z-index:10; display: flex; top: 0;left: 0; right: 0;">
+    <header>
+        <div class="header_wrap">
+            <div class="header_top" style="border-color: transparent;">
+                <div class="header_center">
+                    <div class="login">
+                        <ul class="clearfix">
+                            <li sec:authorize="isAnonymous()" style="font-size: 30px;">
+                                <a href="/members/login" style="color:black; text-decoration-line: none">Login &nbsp; / &nbsp;</a>
+                            </li>
+                            <li sec:authorize="isAnonymous()" style="font-size: 30px;">
+                                <a href="/members/new" style="color:black; text-decoration-line: none">Join In</a>
+                            </li>
+                            <li sec:authorize="isAuthenticated()" style="font-size: 30px; margin-top:50px">
+                                <a href="/members/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header_2">
+                        <div class="logo">
+                            <h1 style="font-size:60px">
+                                <a style="color:black; text-decoration-line: none" href="/main">Share Tour</a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+</html>

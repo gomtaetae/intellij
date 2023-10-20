@@ -35,6 +35,8 @@ public class Auction extends BaseEntity {
     @Column(name="plusprice", nullable = false)
     private Integer plusPrice;
 
+    @Column(name="totalPrice")
+    private Integer totalPrice;
 
     @Enumerated(EnumType.STRING)
     private AuctionStatus auctionStatus;    //옥션 판매 상태
@@ -65,7 +67,7 @@ public class Auction extends BaseEntity {
 
 
     public void addPlusPrice(int plusPrice){
-        this.price += plusPrice;
+        this.plusPrice += plusPrice;
 
     }
 

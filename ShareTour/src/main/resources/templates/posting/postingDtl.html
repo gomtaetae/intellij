@@ -10,24 +10,16 @@
 
 <!-- 사용자 스크립트 추가 -->
 <th:block layout:fragment="script">
-    <script th:inline="javascript"> 
+    <script th:inline="javascript">
 
     </script>
 </th:block>
 
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
-    <link rel="stylesheet"  th:href="@{/css/view.css}">
+
     <style>
-        .mgb-15{
-            margin-bottom:15px;
-        }
-        .mgt-30{
-            margin-top:30px;
-        }
-        .mgt-50{
-            margin-top:50px;
-        }
+
         .repImgDiv{
             margin-right:15px;
             height:auto;
@@ -44,9 +36,10 @@
         .table{width:1200px;
                margin:0 auto;}
     </style>
+    <link rel="stylesheet"  th:href="@{/css/view.css}">
 </th:block>
 
-<div layout:fragment="content" style="margin-left:25%;margin-right:25%">
+<div layout:fragment="content" >
 
     <input type="hidden" id="postingId" th:value="${posting.id}">
 
@@ -62,21 +55,19 @@
             </div>
         </div>
     </div>
-
-    <div class="jumbotron jumbotron-fluid mgt-30">
-        <div class="container">
-            <h4 class="display-5">게시글 내용</h4>
-            <hr class="my-4">
-            <p class="lead" th:text="${posting.content}"></p>
+    <div class="info">
+        <div class="jumbotron jumbotron-fluid mgt-30">
+            <div class="container">
+                <h4 class="display-5">게시글 내용</h4>
+                <p class="lead" th:text="${posting.content}"></p>
+            </div>
+            <div class="img_wrap">
+                <div th:each="postimage : ${posting.postimageDtoList}" class="text-center">
+                    <img th:if="${not #strings.isEmpty(postimage.imgUrl)}" th:src="${postimage.imgUrl}" class="rounded mgb-15">
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div th:each="postimage : ${posting.postimageDtoList}" class="text-center">
-        <img th:if="${not #strings.isEmpty(postimage.imgUrl)}" th:src="${postimage.imgUrl}" class="rounded mgb-15" width="800">
-    </div>
-
-    <div>
-        여기에 댓글 작성
     </div>
 
 </div>

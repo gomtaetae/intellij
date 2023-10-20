@@ -48,6 +48,7 @@
             color : #bd2130;
         }
     </style>
+    <link rel="stylesheet"  th:href="@{/css/auctionform.css}">
 </th:block>
 <div layout:fragment="content">
 
@@ -86,7 +87,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">입찰 금액</span>
             </div>
-            <input type="number" th:field="*{plusPrice}" class="form-control" placeholder="한번 입찰할때의 가격입니다">
+            <input type="number" th:field="*{plusPrice}" class="form-control" placeholder="한번 입찰할때의 가격입니다" style="float:left; width:300px;">
         </div>
         <p th:if="${#fields.hasErrors('plusPrice')}" th:errors="*{plusPrice}" class="fieldError">Incorrect data</p>
 

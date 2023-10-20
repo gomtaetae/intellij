@@ -9,7 +9,7 @@ public class AuctionOrderItemDto {
     public AuctionOrderItemDto(AuctionOrderItem auctionOrderItem, String imgUrl){
         this.title = auctionOrderItem.getAuction().getTitle();
         this.count = auctionOrderItem.getCount();
-        this.orderPrice = auctionOrderItem.getOrderPrice();
+        this.orderPrice = auctionOrderItem.getPrice();
         this.imgUrl = imgUrl;
     }
 

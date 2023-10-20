@@ -1,0 +1,36 @@
+form{width:1200px;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding-bottom:10px;
+     height:520px;}
+
+.h2{margin-left:20px;}
+
+.form-group select{margin-left:20px;}
+
+.input-group{margin-left:20px;}
+
+.input-group-prepend{float:left;
+                     width:150px;
+                     height:30px;}
+
+.input-group-prepend span{margin-top:10px;
+                          display:block;
+                          font-size:20px;}
+
+#title, #price, #inStock{width:500px;
+        float:left;}
+
+.input-group-text{width:250px;}
+
+#content{width:700px;
+         margin-left:30px;
+         height:200px;}
+
+.custom-file{width:200px;
+             float:left;
+             margin-left:20px;}
+.custom-file-label{margin-top:10px;}
